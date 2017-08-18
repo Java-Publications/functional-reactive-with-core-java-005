@@ -19,7 +19,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-    //both must be executed, even if first one failes
+    //both must be executed, even if first one fails
     try {
       final String resultA = serviceA.doWork(null);
     } catch (Exception e) {
