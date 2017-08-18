@@ -1,5 +1,8 @@
 package org.rapidpm.frp.v004;
 
+import static java.lang.System.out;
+
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import org.rapidpm.frp.model.Result;
@@ -31,33 +34,35 @@ public class Main {
 
   public static void main(String[] args) {
 
+    final Consumer<String> print = System.out::println;
 
     final Function<String, Result<String>> checkedFunction
-        = (CheckedFunction<String, String>)((Service) txt -> txt.toUpperCase() + "-workedOn")::doWork;
+        = (CheckedFunction<String, String>)
+          ((Service) txt -> txt.toUpperCase() + "-workedOn")::doWork;
 
 
     checkedFunction.apply("Hello")
                    .ifPresentOrElse(
-                       (result) -> System.out.println("result = " + result),
-                       (failed) -> System.out.println("failed = " + failed)
+                       (result) -> print.accept("result = " + result),
+                       (failed) -> print.accept("failed = " + failed)
                    );
 
     checkedFunction.apply("Hello")
                    .ifPresentOrElse(
-                       (result) -> System.out.println("result = " + result),
-                       () -> System.out.println("failed = execute something like logging ?")
+                       (result) -> print.accept("result = " + result),
+                       () -> print.accept("failed = execute something like logging ?")
                    );
 
     checkedFunction.apply(null)
                    .ifPresentOrElse(
-                       (result) -> System.out.println("result = " + result) ,
-                       (failed) -> System.out.println("failed = " + failed)
+                       (result) -> print.accept("result = " + result) ,
+                       (failed) -> print.accept("failed = " + failed)
                    );
 
     checkedFunction.apply(null)
                    .ifPresentOrElse(
-                       (result) -> System.out.println("result = " + result) ,
-                       () -> System.out.println("failed = execute something like logging ?")
+                       (result) -> print.accept("result = " + result) ,
+                       () -> print.accept("failed = execute something like logging ?")
                    );
 
 
