@@ -31,7 +31,8 @@ public class Main {
 
     Optional<String> optional;
 
-    final CheckedFunction<String, String> checkedFunction = new CheckedFunction<String, String>() {
+    final CheckedFunction<String, String> checkedFunction
+        = new CheckedFunction<String, String>() {
       @Override
       public String applyWithException(String s) throws Exception {
         return ((Service) txt -> txt.toUpperCase() + "-workedOn").doWork(s);
