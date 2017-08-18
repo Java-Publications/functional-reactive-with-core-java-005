@@ -34,7 +34,5 @@ public class Main {
         .mapToInt(Result::get)
         .reduce((left , right) -> left + right)
         .ifPresent(print);
-
-
   }
 }
