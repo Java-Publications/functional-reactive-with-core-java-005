@@ -24,7 +24,7 @@ public class Main {
       optional = Optional.empty();
     }
 
-    optional.ifPresent((result)-> System.out.println("result = " + result));
+    optional.ifPresent((result) -> System.out.println("result = " + result));
 
   }
 }

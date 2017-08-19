@@ -3,10 +3,8 @@ package org.rapidpm.frp.v007;
 import static java.lang.System.out;
 
 import java.util.Objects;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import org.rapidpm.frp.functions.CheckedBiFunction;
 import org.rapidpm.frp.functions.CheckedFunction;
 import org.rapidpm.frp.model.Result;
 
@@ -23,7 +21,7 @@ public class Main {
       = txt -> txt.toUpperCase() + "-workedOnA";
 
   public static Function<CheckedFunction<String, String>,
-                         Function<String, Result<String>>>
+      Function<String, Result<String>>>
       tryIt = (f) -> f;
 
   public static Function<String, Result<String>> tryIt(CheckedFunction<String, String> function) {

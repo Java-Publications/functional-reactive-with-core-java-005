@@ -1,7 +1,5 @@
 package org.rapidpm.frp.v004;
 
-import static java.lang.System.out;
-
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -38,18 +36,18 @@ public class Main {
 
     final Function<String, Result<String>> checkedFunction
         = (CheckedFunction<String, String>)
-          ((Service) txt -> txt.toUpperCase() + "-workedOn")::doWork;
+        ((Service) txt -> txt.toUpperCase() + "-workedOn")::doWork;
 
 
     checkedFunction.apply("Hello")
                    .ifPresentOrElse(
-                       (result) -> print.accept("result = " + result),
+                       (result) -> print.accept("result = " + result) ,
                        (failed) -> print.accept("failed = " + failed)
                    );
 
     checkedFunction.apply("Hello")
                    .ifPresentOrElse(
-                       (result) -> print.accept("result = " + result),
+                       (result) -> print.accept("result = " + result) ,
                        () -> print.accept("failed = execute something like logging ?")
                    );
 
@@ -64,8 +62,6 @@ public class Main {
                        (result) -> print.accept("result = " + result) ,
                        () -> print.accept("failed = execute something like logging ?")
                    );
-
-
 
 
   }

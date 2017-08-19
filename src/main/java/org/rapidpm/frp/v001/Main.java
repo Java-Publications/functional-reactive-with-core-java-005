@@ -10,8 +10,8 @@ public class Main {
     String doWork(String txt) throws Exception;
   }
 
-  public static Service serviceA  = txt -> txt.toUpperCase() + "-workedOnA";
-  public static Service serviceB  = txt -> txt.toUpperCase() + "-workedOnB";
+  public static Service serviceA = txt -> txt.toUpperCase() + "-workedOnA";
+  public static Service serviceB = txt -> txt.toUpperCase() + "-workedOnB";
 
   public static void main(String[] args) {
 
