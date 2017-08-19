@@ -1,8 +1,6 @@
 package org.rapidpm.frp.v005;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.IntBinaryOperator;
 import java.util.function.IntConsumer;
 import java.util.stream.Stream;
 
@@ -34,5 +32,13 @@ public class Main {
         .mapToInt(Result::get)
         .reduce((left , right) -> left + right)
         .ifPresent(print);
+
+    Stream
+        .of("1" , "2" , "Hi" , "3")
+        .map((CheckedFunction<String, Integer>) Integer::valueOf)
+        .flatMap(Result::stream)
+        .reduce((left , right) -> left + right)
+        .ifPresent(System.out::println);
+
   }
 }
